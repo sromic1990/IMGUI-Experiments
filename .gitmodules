@@ -6,6 +6,3 @@
 	path = Dependencies/glfw
 	url = https://github.com/glfw/glfw.git
 	branch = master
-[submodule "Dependencies/glew"]
-	path = Dependencies/glew
-	url = https://github.com/nigels-com/glew.git
