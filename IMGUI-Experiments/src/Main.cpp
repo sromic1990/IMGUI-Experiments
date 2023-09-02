@@ -1,6 +1,9 @@
 #include <iostream>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+#include "imgui.h"
+#include "imgui_impl_glfw.h"
+#include "imgui_impl_opengl3.h"
 
 int main()
 {
@@ -26,10 +29,34 @@ int main()
 		return -1;
 	}
 
+	//Setup ImGui context
+	IMGUI_CHECKVERSION();
+	ImGui::CreateContext();
+	ImGuiIO& io = ImGui::GetIO(); (void)io;
+
+	//Setup Platform/renderer bindings
+	ImGui_ImplGlfw_InitForOpenGL(window, true);
+	ImGui_ImplOpenGL3_Init("#version 130");
+
+	//Setup ImGui Style
+	ImGui::StyleColorsDark();
+
 	//Main Loop
 	while(!glfwWindowShouldClose(window))
 	{
-		//Render here
+		//Poll for and process events
+		glfwPollEvents();
+
+		//Start ImGui frame
+		ImGui_ImplOpenGL3_NewFrame();
+		ImGui_ImplGlfw_NewFrame();
+		ImGui::NewFrame();
+
+		//Create an ImGui window
+		ImGui::Begin("Hello, World");
+		ImGui::Text("This is some useful text!");
+		ImGui::End();
+
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		//Draw a triangle
@@ -39,12 +66,18 @@ int main()
 		glVertex2f(0.5f, -0.5f);
 		glEnd();
 
+		//Render ImGui
+		ImGui::Render();
+		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+		
 		//Swap front and back buffers
 		glfwSwapBuffers(window);
-
-		//Poll for and process events
-		glfwPollEvents();
 	}
+
+	//Clean up ImGui
+	ImGui_ImplOpenGL3_Shutdown();
+	ImGui_ImplGlfw_Shutdown();
+	ImGui::DestroyContext();
 
 	glfwTerminate();
 
