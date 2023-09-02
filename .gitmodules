@@ -10,3 +10,7 @@
 	path = Dependencies/fmt
 	url = https://github.com/fmtlib/fmt.git
 	branch = master
+[submodule "Dependencies/implot"]
+	path = Dependencies/implot
+	url = https://github.com/epezent/implot.git
+	branch = master
