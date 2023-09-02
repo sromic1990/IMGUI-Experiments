@@ -16,6 +16,9 @@
     <Filter Include="imgui">
       <UniqueIdentifier>{6e9f5116-1c87-41c9-9804-6bfe674c74f8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="implot">
+      <UniqueIdentifier>{dc0a93f7-9369-4252-85ff-37d242c7bfa9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Main.cpp">
@@ -42,5 +45,22 @@
     <ClCompile Include="..\Dependencies\imgui\imgui_widgets.cpp">
       <Filter>imgui</Filter>
     </ClCompile>
+    <ClCompile Include="src\render.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Dependencies\implot\implot.cpp">
+      <Filter>implot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Dependencies\implot\implot_demo.cpp">
+      <Filter>implot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Dependencies\implot\implot_items.cpp">
+      <Filter>implot</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\render.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
