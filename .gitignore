@@ -69,3 +69,9 @@ x86/
 *.VC.VC.opendb
 *.VC.db-shm
 *.VC.db-wal
+
+# CMAKE files
+CMakeCache.txt
+CMakeFiles/
+*.cmake
+/build/
